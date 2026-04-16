@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PageFinder is the best way to get out of a reading slump! We help you find your new favourite book!">
+    <meta name="keywords" content="Fantasy, reads, sci-fi ,romance, Ireland">
+    <title>Find Favourites</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="headerlogo"><img src="headerlogo.jpg" alt="Logo"></div>
+            <nav><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="Find your favourites.html">Favourites</a></li><li><a href="trending.html">Trending</a></li><li><a href="local-library.html">Library</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Find Your Favourites</h2>
+                <div class="genre-filter">
+                    <button class="filter-btn active" onclick="filterbooks('All')">All</button>
+                    <button class="filter-btn" onclick="filterbooks('Fantasy')">Fantasy</button>
+                    <button class="filter-btn" onclick="filterbooks('Romance')">Romance</button>
+                </div>
+            </div>
+        </section>
+        <section class="container"><div id="grid" class="book-grid"></div></section>
+    </main>
+    <h1>Where to find your favourites!</h1>
+    <p>There are many places to pick up your next read!
+        We suggest: </p>
+        <ul class="bullet-list">
+            <li> <a href="https://www.amazon.com" target="_blank">Amazon Website</a></li>
+            <li>Your local library</li>
+            <li> Ask a friend!</li>
+        </ul>
+    
+    <footer><p> 2026 PageFinder | Niamh Doyle </p></footer>
+
+    <script>
+const myBooks = [
+    {title: "Harry Potter", genre: "Fantasy"}, 
+    {title: "The Summer I turned Pretty", genre: "Romance"}, 
+    {title: "Shadow Hunter Series", genre: "Fantasy"},
+    {title: "It Ends With Us", genre: "Romance"},
+    {title: "A court of thorns and roses", genre: "Fantasy"},
+];
+
+function filterbooks(selectedGenre) {
+    var grid = document.getElementById('grid');
+    grid.innerHTML = '';
+
+    myBooks.filter(function(book) {
+        return selectedGenre === 'All' || book.genre === selectedGenre;
+    }).forEach(function(book) {
+
+        grid.innerHTML += `
+            <div class="book-card">
+                <h4>${book.title}</h4>
+                <span class="tag">${book.genre}</span>
+            </div>`;
+    });
+}
+
+window.onload = function() {
+    filterBooks('All');
+};
+    </script>
+</body>
+</html>

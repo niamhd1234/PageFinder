@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Find Favourites</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find our Local Library Kiosk">
+    <meta name="keywords" content="Wexford, Kiosk, libraries,booktok, Ireland">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+        <div class="container nav-container">
+            <div class="headerlogo"><img src="headerlogo.jpg" alt="Logo"></div> 
+            <nav><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="favourites.html">Favourites</a></li><li><a href="trending.html">Trending</a></li><li><a href="local-library.html">Library</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+            </div> </header> <main class="container">
+        <h1>Your Local Library</h1>
+        <p>We recently have started installing kiosks in local libraries to ensure ease when deciding what book to choose.</p>
+
+        <h2>Wexford Library Kiosk</h2>
+        <p>Our newest and biggest installation can be found in Wexford library. See below to find us!</p>
+        
+        <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2437.7302624976096!2d-6.466270523903023!3d52.33903934961235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48681b43596fcd85%3A0x54dc9f80db74944!2sWexford%20Town%20Library!5e0!3m2!1sen!2sie!4v1775817726283!5m2!1sen!2sie" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></iframe>
+        </div>
+
+        <div class="kiosk-status-card">
+            <h3>Kiosk Status: <span id="status-text">Checking...</span></h3>
+            <div id="status-indicator" class="loading-dot"></div>
+            <p id="last-updated"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 PageFinder | Niamh Doyle </p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const statusText = document.getElementById("status-text");
+            const statusIndicator = document.getElementById("status-indicator");
+            const lastUpdated = document.getElementById("last-updated");
+
+            setTimeout(() => {
+                const currentHour = new Date().getHours();
+          
+                const isOpen = currentHour >= 9 && currentHour < 20;
+                if (isOpen) {
+                    statusText.textContent = "Online";
+                    statusText.style.color = "#2ecc71"; 
+                    statusIndicator.className = "online";
+                } else {
+                    statusText.textContent = "Offline (After Hours)";
+                    statusText.style.color = "#e74c3c"; 
+                    statusIndicator.className = "offline";
+                }
+
+                const now = new Date();
+                lastUpdated.textContent = "Last checked: " + now.toLocaleTimeString();
+                
+            }, 2000); 
+        });
+    </script>
+</body>
+</html>

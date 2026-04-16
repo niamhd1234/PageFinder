@@ -1,0 +1,221 @@
+/* Global Reset - all the same */
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+/* footer */
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #fffafc; 
+    color: #444;
+    text-align: center; 
+}
+
+/* Footer pushed down */
+main {
+    flex: 1; 
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto; 
+    padding: 20px;
+}
+
+/* --- Header and Nav bar */
+header {
+    background-color: #ffddf2; 
+    padding: 20px 0;
+    border-bottom: 2px solid #f8c8e6;
+    width: 100%;
+}
+
+.headerlogo img {
+    height: 120px;
+    width: auto;
+    margin-bottom: 5px;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-links li {
+    margin: 5px 15px;
+}
+
+.nav-links li a {
+    color: #444;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* Main Hero */
+.hero {
+    padding: 60px 20px;
+}
+
+.hero h2 {
+    color: #444; 
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 1.1rem;
+}
+.book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px 0;
+}
+
+.book-card {
+    background: white;
+    border: 2px solid #ffddf2;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.tag {
+    display: inline-block;
+    background: #ffddf2;
+    font-size: 0.6rem;
+    padding: 4px 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+
+/* Forms and interactive */
+input[type="text"], textarea, select {
+    width: 100%;
+    max-width: 600px;
+    padding: 12px;
+    border: 2px solid #ffddf2;
+    border-radius: 15px;
+    margin: 10px auto;
+    display: block;
+}
+
+button, .filter-btn, input[type="submit"] {
+    background: white;
+    border: 2px solid #ffddf2;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #444;
+}
+
+button:hover, .filter-btn:hover, input[type="submit"]:hover {
+    background: #ffddf2;
+}
+
+/*  Pink boxes and podcast */
+.goal-tracker, .podcast-section, .podcast-box, .kiosk-status-card {
+    background-color: #ffddf2;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px auto;
+    max-width: 600px;
+    border: 2px solid #f8c8e6;
+}
+
+.map-container {
+    margin: 30px auto;
+    max-width: 800px;
+    border: 5px solid #ffddf2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* About page*/
+.founder-img {
+    display: block;
+    width: 250px;           
+    height: auto;          
+    border-radius: 100%; 
+    border: 10px solid #f8c8e6; 
+    margin: 30px auto;    
+}
+
+.statsBox {
+background-color: #ffddf2;
+text-align: center;
+margin: 40px auto;
+}
+
+/* Favourites Page */
+.bullet-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 0;
+    margin: 30x auto 70px auto; 
+}
+
+.bullet-list li {
+    background-color: white; 
+    border: 2px solid #ffddf2; 
+    border-radius: 20px;      
+    padding: 15px 30px;      
+    margin-bottom: 20px;     
+    width: 100%;
+    max-width: 400px;        
+    
+}
+
+.bullet-list li:hover {
+    background-color: #ffddf2;
+}
+
+.bullet-list li a {
+    color: #444;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background: #ffddf2;
+    text-align: center;
+    padding: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+    .nav-links li {
+        margin: 5px 10px;
+    }
+}

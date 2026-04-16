@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn all about our founder Niamh">
+    <meta name="keywords" content="Books, founder, reading, DCU, Ireland">
+    <title>About Us</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header><div class="container nav-container"><div class="headerlogo"><img src="headerlogo.jpg"></div><nav><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="favourites.html">Favourites</a></li><li><a href="trending.html">Trending</a></li><li><a href="local-library.html">Library</a></li><li><a href="contact.html">Contact</a></li></ul></nav></div></header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>About PageFinder</h2>
+                <p>Hi! My name is Niamh and I am a second year MINT student at Dublin City University and I am the founder of PageFinder! I decided to mix my love of reading with my (new) found love of coding and 
+                have developed a webiste to help you find your next book to read. I was inspired to create this platform as I would find myself wondering 
+                around the libray unsure of what books to choose! I felt overwhelmed with the selection and wanted a helping hand to choose!
+                I hope you enjoy!
+        <p>
+                Our Book of the Month is voted every month accross our social media platforms and we are constantly updating our book reccomondations!
+                If want to see any books featured or write us a book review email founder@pagefinder.ie I look forward to hearing from you!
+        </p>
+        </section>
+    </main>
+  <img src="IMG_1520 2.PNG" alt="picture of me - Niamh!" class="founder-img">
+
+  <section class="statsBox">
+    <div id="statsBox">
+        <h3>I have been helping you new find books for:</h3>
+        <h2 id="daysCounter">0</h2>
+        <h3>Days!</h3>
+    </div>
+</section>
+<script>
+var launchDate = new Date(2026, 3, 3); 
+
+function calculateDays() {
+    var today = new Date();
+    var difference = today - launchDate;
+    var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    var display = document.getElementById("daysCounter");
+    if (display) {
+        display.innerHTML = days;
+    }
+}
+
+window.addEventListener('load', calculateDays);
+</script>
+
+    <footer><p>© 2026 PageFinder | Niamh Doyle </p></footer>
+</body>
+</html>
+

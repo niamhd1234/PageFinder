@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PageFinder is the best way to get out of a reading slump! We help you find your new favourite book!">
+    <meta name="keywords" content="Books, reading, viral reads, online library, community empowerment,booktok, Ireland">
+     <title>PageFinder Home</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+    <div class="container nav-container">
+        <div class="headerlogo">
+            <img src="headerlogo.jpg" alt="Logo">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="local-library.html">Library Kiosk</a></li>
+                <li><a href="trending.html">Trending</a></li>
+                <li><a href="favourites.html">Favourites</a></li>
+                 <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h2>Your New Favourite Book Finder!</h2>
+            <label for="mainSearch">Search Books:</label>
+            <input type="text" id="mainSearch" placeholder="Search by genres, titles or authors" onkeyup="liveSearch()">
+
+            <div class="genre-filter">
+                <button onclick="filterBooks('All')">All</button>
+                <button onclick="filterBooks('Classics')">Classics</button>
+                <button onclick="filterBooks('Sci-Fi')">Sci-Fi</button>
+                <button onclick="filterBooks('Romance')">Romance</button>
+                <button onclick="filterBooks('#BookTok')">#BookTok</button>
+            </div>
+        </div>
+    </section>
+
+     <section class="container">
+        <div id="bookGrid" class="book-grid"></div>
+    </section>
+</main>
+
+    <section class="container">
+        <div class="goal-tracker">
+            <h3>Reading Goal This Year: <span id="goalCounter">0</span> / 10 Books</h3>
+            
+            <button class="btn-small" onclick="addBookToGoal()">I finished my book! </button>
+        
+            <p>Books available Online:</p>
+            <meter value="1.0" min="0" max="1">100%</meter>
+        </div>
+    </section>
+   
+   <section class="container">
+    <div class="podcast-box">
+        <h3>Listen to our Favourite Weekly Book Podcast</h3>
+        
+        <audio controls="controls">
+            <source src="Podcast.m4a" type="audio/mp4">
+        </audio>
+        </div>
+    </section>
+
+    <section class="container">
+    <div class="slideshow-box">
+    <h2>Our Recent Books of The Month</h2>
+<h3 id="monthDisplay">January</h3>
+<div class="slide-image-container">
+ <img id="monthImage" src="bookofmonth.jpg.png" alt="Book Cover" style="width:200px">
+</div>
+
+ <p id="bookDescription">January's pick is It Ends With Us by Colleen Hoover</p>
+
+        <div class="slide-controls">
+            <button onclick="changeSlide(-1)">❮ Prev</button>
+            <button onclick="changeSlide(1)">Next ❯</button>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>© 2026 PageFinder | Niamh Doyle </p>
+</footer>
+
+<script>
+var allBooks = [
+    { title: "Divergent", author: "Veronica Roth", genre: "Sci-Fi" },
+    { title: "Little Women", author: "Louisa May Alcott", genre: "Classics" },
+    { title: "Pride and Prejudice", author: "Jane Austen", genre: "Classics" },
+    { title: "The Hunger Games", author: "Susanne Collins", genre: "Sci-Fi" },
+    { title: "The Love Hypothesis", author: "Ali Hazelwood", genre: "Romance" },
+    { title: "Verity", author: "Colleen Hoover", genre: "#BookTok" },
+    { title: "It Ends With Us", author: "Colleen Hoover", genre: "#BookTok" },
+    { title: "Heated Rivalry", author: "Rachel Reid", genre: "#BookTok" },
+    { title: "Binding 13", author: "Chloe Walsh", genre: "#BookTok" },
+    { title: "Oasis", author: "Ailish O Callohan", genre: "Sci-Fi" },
+    { title: "Flawed", author: "Ceclia Ahern", genre: "Sci-Fi" },
+    { title: "Loving you", author: "Niamh Doyle", genre: "Romance" },
+];
+
+function liveSearch() {
+    var query = document.getElementById('mainSearch').value.toLowerCase();
+    var filtered = [];
+    
+    allBooks.forEach(function(book) {
+        if (book.title.toLowerCase().indexOf(query) !== -1 || book.author.toLowerCase().indexOf(query) !== -1) {
+            filtered.push(book);
+        }
+    });
+    renderGrid(filtered);
+}
+
+function filterBooks(genre) {
+    if (genre === 'All') {
+        renderGrid(allBooks);
+    } else {
+        var filtered = [];
+        
+ allBooks.forEach(function(book) {
+ if (book.genre.toLowerCase() === genre.toLowerCase()) {
+ filtered.push(book);
+         }
+        })
+renderGrid(filtered);
+    }
+    }
+function renderGrid(data) {
+    var grid = document.getElementById('bookGrid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    
+    data.forEach(function(book) {
+        var card = document.createElement('div');
+        card.className = 'book-card';
+        card.innerHTML = `
+            <h4>${book.title}</h4>
+            <p>By ${book.author}</p>
+            <span class="tag">${book.genre}</span>
+            <br><br>
+            <button onclick="this.innerHTML='<3 Liked'">Like</button>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+var count = 0;
+function addBookToGoal() {
+    if (count < 10) {
+        count = count + 1;
+        document.getElementById('goalCounter').innerHTML = count;
+        document.getElementById('progressBar').value = count;
+        if(count === 10) alert("Good Job! Goal Reached!");
+    }
+}
+window.onload = function() {
+    renderGrid(allBooks);
+};
+var bookCount = 0;
+
+var months = ["January", "February", "March", "April",];
+var images = ["bookofmonth.jpg.png", "Febbook.png", "Marchbook.jpg", "Aprilbook.png",];
+var currentIndex = 0; 
+
+function changeSlide(direction) {
+    currentIndex = currentIndex + direction;
+
+    if (currentIndex > 3) { currentIndex = 0; }
+    if (currentIndex < 0) { currentIndex = 3; }
+
+
+    document.getElementById("monthImage").src = images[currentIndex];
+    document.getElementById("monthDisplay").innerHTML = months[currentIndex];
+    
+    var descriptions = [
+        "January's pick is It Ends With Us By Colleen Hoover.",
+        "February is currently trending on #booktok",
+        "March's book of the month is by irish Author Celia Ahern",
+        "April's book is a new addition to the Hunger Games series, It is turning into a film in Nov 2026",
+    
+    ];
+    document.getElementById("bookDescription").innerHTML = descriptions[currentIndex];
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Got a question? Get in touch!">
+    <meta name="keywords" content="contact, books, message us, email, Ireland">
+    <title>Contact Us</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <div class="container nav-container"></div>
+    <header>
+            <div class="headerlogo"><img src="headerlogo.jpg" alt="Logo"></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="favourites.html">Favourites</a></li>
+                    <li><a href="trending.html">Trending</a></li>
+                    <li><a href="local-library.html">Library</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h3>Contact Us!</h3>
+        <div class="contact-box">
+            <form id="contactForm" onsubmit="return processForm(event)">
+                
+                <label for="fname">First Name</label>
+                <input type="text" id="finame" name="firstname" placeholder="Type your first name here please" required>
+
+                <label for="lname">Last Name</label>
+                <input type="text" id="laname" name="lastname" placeholder="Type your last name here please">
+
+                <label for="subject">Query</label>
+                <textarea id="query" name="query" placeholder="Type your query here please"></textarea>
+
+                <label for="reason">Reason for Contact</label>
+                <select id="reason" name="dropdown">
+                    <option value="Query" selected>Query</option> 
+                    <option value="Book Suggestion">I'd like to suggest a book</option> 
+                    <option value="Other">Other</option>
+                </select>
+
+                <br><br>
+                <input type="checkbox" id="terms">
+                <label for="terms">I agree to terms and conditions</label> 
+                
+                <br><br>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+                
+                <p id="formFeedback"></p>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p> 2026 PageFinder | Niamh Doyle</p>
+    </footer>
+
+    <script>
+    function processForm(event) { 
+        event.preventDefault();
+        var name = document.getElementById('finame').value;
+        var feedback = document.getElementById('formFeedback');
+            feedback.innerHTML = "Thank you! Your query has been sent.";
+            document.getElementById('contactForm').reset();
+        } 
+        return false;
+    
+    </script>
+</body>
+</html>
